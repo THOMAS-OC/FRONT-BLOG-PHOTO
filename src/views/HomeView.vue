@@ -36,7 +36,7 @@
 
         <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 
-        <h2>{{ nameAlbum }}</h2>
+        <h2 class="nameAlbum">{{ nameAlbum }}</h2>
 
         <section class="album">
         </section>
@@ -96,10 +96,13 @@ export default {
         const imgData = response.data;
         for (let img of imgData){
             let newImgLink = document.createElement("div");
-
             newImgLink.innerHTML = `<a href="${img.urlDownload}" target="_blank"> <i class="fa-solid fa-file-arrow-down"></i> </a> <img src="${img.urlFileCompressed}" alt="${img.alt}">`
             document.querySelector(".album").appendChild(newImgLink)
         }
+        // window.scrollTo(0, 1000);
+        let element = document.querySelector(".nameAlbum");
+        // smooth scroll to element and align it at the bottom
+        element.scrollIntoView({ behavior: 'smooth', block: 'start'});
       })
       .catch((err)=> {
         console.log(err);
@@ -234,6 +237,7 @@ h2{
     animation-delay: 2s;
     animation-fill-mode: both;
     text-align: center;
+    text-shadow: 0px 0px 3px black;
 }
 
 @keyframes titleAnimation {

@@ -22,10 +22,12 @@ export default {
     /* FOOTER */
 
     footer{
-        margin: 200px auto 0px auto;
+        margin: 200px auto 50px auto;
         width: 200px;
         height: 50px;
         border: 2px solid white;
+        border-right: none;
+        border-left: none;
         display: flex;
         justify-content: space-around;
         align-items: center;
