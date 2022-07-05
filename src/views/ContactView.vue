@@ -8,10 +8,10 @@
         <form action="/sendEmail" method="post">
 
             <label for="nom">nom</label>
-            <input required placeholder="Dupont" type="text" id="nom" name="nom">
+            <input pattern="[a-zA-Z]{3,50}" required placeholder="Dupont" type="text" id="nom" name="nom">
 
             <label for="prenom">prenom</label>
-            <input required placeholder="Jean" type="text" id="prenom" name="prenom">
+            <input pattern="[a-zA-Z]{3,50}" required placeholder="Jean" type="text" id="prenom" name="prenom">
 
             <label for="message">Message</label>
             <textarea placeholder="Bonjour..." name="message" id="message" cols="30" rows="10"></textarea>
@@ -34,6 +34,13 @@
 export default {
   name: 'ContactView',
   components: {
+  },
+
+  created: function() {
+    let description = "Vous pouvez directement me contacter à travers ce formulaire pour toutes demandes !"
+    document.title = "Contactez-moi / Arty blog photographique"
+    document.querySelector('meta[name="description"]').setAttribute("content", description)
+
   }
 }
 </script>

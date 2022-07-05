@@ -1,7 +1,7 @@
 <template>
   <main class="SelectAlbum">
+            <h2>Parcourez mes albums </h2>
         <section class="choiceGalerie">
-            
             <a class="bnw" v-on:click="select('bnw')" href="#">
                 <h3>Black and white</h3>
                 <img src="../assets/bnw_section.jpg" alt="Album noir et blanc">
@@ -34,6 +34,8 @@
 
         </section>
 
+        <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+
         <h2>{{ nameAlbum }}</h2>
 
         <section class="album">
@@ -58,6 +60,12 @@ export default {
     msg: String
   },
 
+  created: function() {
+    let description = "Bienvenu dans mon univers photographique ! Vous trouverez ici l'ensemble de mes photos téléchargeables gratuitement ainsi que de nombreux photographes amateurs à découvrir"
+    document.title = "Découvrez mon univers photographique / ARTY"
+    document.querySelector('meta[name="description"]').setAttribute("content", description)
+  },
+
   methods:{
 
     select(album){
@@ -74,6 +82,12 @@ export default {
     else if (album == "animalier"){
           this.nameAlbum = "Album Animalier" 
       }
+
+      document.querySelector(".lds-roller").className = "lds-roller loaderFondu"
+    
+      setTimeout(()=>{
+        document.querySelector(".lds-roller").className = "lds-roller"
+      }, 2500)
     
       document.querySelector(".album").innerHTML = ""
       console.log(album);
@@ -81,11 +95,9 @@ export default {
       .then(function (response) {
         const imgData = response.data;
         for (let img of imgData){
-            let newImgLink = document.createElement("a");
-            newImgLink.setAttribute("href", img.urlDownload)
-            newImgLink.setAttribute("target", "_blank")
+            let newImgLink = document.createElement("div");
 
-            newImgLink.innerHTML = `<img src="${img.urlFileCompressed}" alt="${img.alt}">`
+            newImgLink.innerHTML = `<a href="${img.urlDownload}" target="_blank"> <i class="fa-solid fa-file-arrow-down"></i> </a> <img src="${img.urlFileCompressed}" alt="${img.alt}">`
             document.querySelector(".album").appendChild(newImgLink)
         }
       })
@@ -93,14 +105,124 @@ export default {
         console.log(err);
       })
 
-    }
+    },
 
-  }
+
+  },
+
+
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.loaderFondu{
+    animation-name: loaderFondu;
+    animation-duration: 2.5s;
+    animation-fill-mode: both;
+}
+
+@keyframes loaderFondu {
+    from{
+        opacity: 1
+    }
+
+    to{
+        opacity: 0
+    }
+}
+
+/* LOADER */
+
+.lds-roller {
+  display: block;
+  position: relative;
+  margin: 10px auto;
+  opacity: 0;
+  width: 80px;
+  height: 80px;
+}
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
+}
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  margin: -4px 0 0 -4px;
+}
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+  top: 63px;
+  left: 63px;
+}
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+  top: 68px;
+  left: 56px;
+}
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+  top: 71px;
+  left: 48px;
+}
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+  top: 71px;
+  left: 32px;
+}
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+  top: 68px;
+  left: 24px;
+}
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+  top: 63px;
+  left: 17px;
+}
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12px;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* END LOADER */
 
 h2{
     margin-top: 150px;
@@ -109,6 +231,7 @@ h2{
     font-size: 40px;
     text-align: center;
 }
+
 
 /* Layout galerie */
 .choiceGalerie{

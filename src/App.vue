@@ -62,8 +62,7 @@ section.album{
   height: auto;
 }
 
-section.album a{
-  cursor: pointer;
+section.album div{
   width: 400px;
   height: 400px;
   margin: auto;
@@ -81,6 +80,16 @@ section.album img{
   object-position: center;
   width: 100%;
   height: 100%;
+}
+
+section.album a {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  font-size: 50px;
+  color: white;
+  text-shadow: 0px 0px 5px rgb(0, 0, 0);
+
 }
 
 @keyframes imageAnimate {
