@@ -1,10 +1,7 @@
 <template>
-  <div class="about">
-
-    <main>
-
-        
-
+  
+    <main class="contact">
+       
         <form action="/sendEmail" method="post">
 
             <label for="nom">nom</label>
@@ -25,7 +22,6 @@
 
     </main>
 
-  </div>
 </template>
 
 <script>
@@ -66,6 +62,7 @@ export default {
       animation-duration: 1.5s;
       animation-iteration-count: 1;
       animation-fill-mode: both;
+      animation-delay: 2.5s;
   }
 
   input, select, textarea {
@@ -80,6 +77,8 @@ export default {
       animation-duration: 1.5s;
       animation-iteration-count: 1;
       animation-fill-mode: both;
+      animation-delay: 2.5s;
+
   }
 
   textarea{
@@ -153,7 +152,7 @@ export default {
       animation-duration: 1s;
       animation-iteration-count: 1;
       animation-fill-mode: both;
-      animation-delay: 1s;
+      animation-delay: 2.5s;
       margin-left: 10px;
   }
 
@@ -170,7 +169,7 @@ export default {
       animation-duration: 1s;
       animation-iteration-count: 1;
       animation-fill-mode: both;
-      animation-delay: 1.5s;
+      animation-delay: 2.5s;
   }
 
   input[type="submit"]:hover{

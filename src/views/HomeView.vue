@@ -229,7 +229,20 @@ h2{
     margin-bottom: 50px;
     color: white;
     font-size: 40px;
+    animation-name: titleAnimation;
+    animation-duration: 0.5s;
+    animation-delay: 2.5s;
+    animation-fill-mode: both;
     text-align: center;
+}
+
+@keyframes titleAnimation {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
 }
 
 
@@ -257,7 +270,7 @@ h2{
     transition-duration: 0.3;
     animation-name: cardSection;
     animation-duration: 1s;
-    animation-delay: 1s;
+    animation-delay: 2.5s;
     animation-fill-mode: both;
     position: relative;
     margin: auto;
@@ -281,19 +294,19 @@ h2{
 }
 
 .choiceGalerie > a:nth-child(1){
-    animation-delay: 1s;
+    animation-delay: 2.5s;
 }
 
 .choiceGalerie > a:nth-child(2){
-    animation-delay: 1.5s;
+    animation-delay: 3s;
 }
 
 .choiceGalerie > a:nth-child(3){
-    animation-delay: 2s;
+    animation-delay: 3.5s;
 }
 
 .choiceGalerie > a:nth-child(4){
-    animation-delay: 2.5s;
+    animation-delay: 4s;
 }
 
 .choiceGalerie a:hover {

@@ -4,7 +4,11 @@
     <the-header></the-header>
     <h1 class="logoInMain">Arty</h1>
 
-    <router-view/>
+    <transition>
+
+      <router-view/>
+
+    </transition>
 
     <the-footer></the-footer>
 
@@ -32,13 +36,26 @@ export default {
 
 <style>
 
+/* TRANSITION DU ROUTEUR */
 
+
+/* DISPARITION */
+
+.v-leave-active{
+  opacity: 1;
+  transform: translateX(0%);
+  transition-duration: 2s;
+}
+
+.v-leave-to{
+  opacity: 0;
+  transform: translateX(-100%);
+
+}
 
 /* GESTION DU BACKGROUND */
 
-
 body{
-    scroll-behavior: smooth;
     background-image: url("assets/background-flou.jpg");
     background-position: center;
     background-attachment: fixed;
@@ -71,7 +88,7 @@ section.album div{
   border: 2px solid white;
   border-radius: 2px;
   animation-name: imageAnimate;
-  animation-delay: 1.5s;
+  animation-delay: 2.5s;
   animation-duration: 1s;
   animation-fill-mode: both;
 }
