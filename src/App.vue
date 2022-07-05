@@ -2,7 +2,6 @@
   <div id="app">
 
     <the-header></the-header>
-    <h1 class="logoInMain">Arty</h1>
 
     <transition>
 
@@ -88,7 +87,7 @@ section.album div{
   border: 2px solid white;
   border-radius: 2px;
   animation-name: imageAnimate;
-  animation-delay: 2.5s;
+  animation-delay: 2s;
   animation-duration: 1s;
   animation-fill-mode: both;
 }

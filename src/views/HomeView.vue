@@ -230,8 +230,8 @@ h2{
     color: white;
     font-size: 40px;
     animation-name: titleAnimation;
-    animation-duration: 0.5s;
-    animation-delay: 2.5s;
+    animation-duration: 1s;
+    animation-delay: 2s;
     animation-fill-mode: both;
     text-align: center;
 }
@@ -294,19 +294,19 @@ h2{
 }
 
 .choiceGalerie > a:nth-child(1){
-    animation-delay: 2.5s;
+    animation-delay: 2s;
 }
 
 .choiceGalerie > a:nth-child(2){
-    animation-delay: 3s;
+    animation-delay: 2.5s;
 }
 
 .choiceGalerie > a:nth-child(3){
-    animation-delay: 3.5s;
+    animation-delay: 3s;
 }
 
 .choiceGalerie > a:nth-child(4){
-    animation-delay: 4s;
+    animation-delay: 3.5s;
 }
 
 .choiceGalerie a:hover {
@@ -339,7 +339,7 @@ h2{
 @keyframes cardSection {
     from{
         opacity: 0;
-        transform: translateY(-500px);
+        transform: translateY(500px);
     }
 
     to{

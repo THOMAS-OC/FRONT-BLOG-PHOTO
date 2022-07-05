@@ -62,7 +62,7 @@ export default {
       animation-duration: 1.5s;
       animation-iteration-count: 1;
       animation-fill-mode: both;
-      animation-delay: 2.5s;
+      animation-delay: 2s;
   }
 
   input, select, textarea {
@@ -77,7 +77,7 @@ export default {
       animation-duration: 1.5s;
       animation-iteration-count: 1;
       animation-fill-mode: both;
-      animation-delay: 2.5s;
+      animation-delay: 2s;
 
   }
 
@@ -152,7 +152,7 @@ export default {
       animation-duration: 1s;
       animation-iteration-count: 1;
       animation-fill-mode: both;
-      animation-delay: 2.5s;
+      animation-delay: 2s;
       margin-left: 10px;
   }
 
@@ -169,7 +169,7 @@ export default {
       animation-duration: 1s;
       animation-iteration-count: 1;
       animation-fill-mode: both;
-      animation-delay: 2.5s;
+      animation-delay: 2s;
   }
 
   input[type="submit"]:hover{
