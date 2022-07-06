@@ -81,6 +81,8 @@ section.album{
 
 section.album div{
   width: 400px;
+  max-width: 90vw;
+  max-height: 90vw;
   height: 400px;
   margin: auto;
   margin-top: 50px;
