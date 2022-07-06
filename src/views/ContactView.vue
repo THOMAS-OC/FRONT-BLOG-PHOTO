@@ -90,6 +90,11 @@ h1{
       animation-delay: 2s;
   }
 
+  input, textarea{
+    max-width: 100%;
+    font-size: 20px;
+  }
+
   input, select, textarea {
       border: none;
       border: 2px solid white;
