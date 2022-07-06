@@ -2,7 +2,8 @@
   <div id="app">
 
     <div class="loading">
-      <div class="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      <p class="titleLoader">Arty</p>
+      <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
     </div>
     
     <the-header></the-header>
@@ -71,74 +72,77 @@ export default {
   }
 }
 
-.lds-grid {
+.titleLoader{
   display: inline-block;
   position: absolute;
   width: 80px;
   height: 80px;
+  top: 40%;
+  left: 49%;
+  font-size: 70px;
+  text-align: center;
+  font-family: 'Splash', cursive;
+  color: white;
+  transform: translate(-50%, -50%);
+}
+
+.lds-ellipsis {
+  display: inline-block;
+  position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(2);
-}
-.lds-grid div {
+  width: 80px;
+  height: 80px;
   position: absolute;
-  width: 16px;
-  height: 16px;
+  transform: translate(-50%, -50%);
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
   border-radius: 50%;
   background: #fff;
-  animation: lds-grid 1.2s linear infinite;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
-.lds-grid div:nth-child(1) {
-  top: 8px;
+.lds-ellipsis div:nth-child(1) {
   left: 8px;
-  animation-delay: 0s;
+  animation: lds-ellipsis1 0.6s infinite;
 }
-.lds-grid div:nth-child(2) {
-  top: 8px;
-  left: 32px;
-  animation-delay: -0.4s;
-}
-.lds-grid div:nth-child(3) {
-  top: 8px;
-  left: 56px;
-  animation-delay: -0.8s;
-}
-.lds-grid div:nth-child(4) {
-  top: 32px;
+.lds-ellipsis div:nth-child(2) {
   left: 8px;
-  animation-delay: -0.4s;
+  animation: lds-ellipsis2 0.6s infinite;
 }
-.lds-grid div:nth-child(5) {
-  top: 32px;
+.lds-ellipsis div:nth-child(3) {
   left: 32px;
-  animation-delay: -0.8s;
+  animation: lds-ellipsis2 0.6s infinite;
 }
-.lds-grid div:nth-child(6) {
-  top: 32px;
+.lds-ellipsis div:nth-child(4) {
   left: 56px;
-  animation-delay: -1.2s;
+  animation: lds-ellipsis3 0.6s infinite;
 }
-.lds-grid div:nth-child(7) {
-  top: 56px;
-  left: 8px;
-  animation-delay: -0.8s;
-}
-.lds-grid div:nth-child(8) {
-  top: 56px;
-  left: 32px;
-  animation-delay: -1.2s;
-}
-.lds-grid div:nth-child(9) {
-  top: 56px;
-  left: 56px;
-  animation-delay: -1.6s;
-}
-@keyframes lds-grid {
-  0%, 100% {
-    opacity: 1;
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
   }
-  50% {
-    opacity: 0.5;
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
   }
 }
 
