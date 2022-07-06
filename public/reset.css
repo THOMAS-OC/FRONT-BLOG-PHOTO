@@ -65,4 +65,5 @@ a {
 
 html{
 	height: auto;
+	overflow-x: hidden;
 }

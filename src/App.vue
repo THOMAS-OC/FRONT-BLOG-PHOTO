@@ -1,6 +1,10 @@
 <template>
   <div id="app">
 
+    <div class="loading">
+      <div class="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
+    
     <the-header></the-header>
 
     <transition>
@@ -35,6 +39,109 @@ export default {
 
 <style>
 
+/* LOADING DE LA PAGE */
+
+.loading{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 100;
+  animation-name: loader;
+  animation-duration: 4s;
+  animation-fill-mode: both;
+}
+
+@keyframes loader {
+  0%{
+    opacity: 1;
+  }
+  50%{
+    display: inline-block;
+    opacity: 1;
+  }
+  95%{
+    display: inline-block;
+    opacity: 0;
+  }
+  100%{
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+  }
+}
+
+.lds-grid {
+  display: inline-block;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(2);
+}
+.lds-grid div {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  animation: lds-grid 1.2s linear infinite;
+}
+.lds-grid div:nth-child(1) {
+  top: 8px;
+  left: 8px;
+  animation-delay: 0s;
+}
+.lds-grid div:nth-child(2) {
+  top: 8px;
+  left: 32px;
+  animation-delay: -0.4s;
+}
+.lds-grid div:nth-child(3) {
+  top: 8px;
+  left: 56px;
+  animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(4) {
+  top: 32px;
+  left: 8px;
+  animation-delay: -0.4s;
+}
+.lds-grid div:nth-child(5) {
+  top: 32px;
+  left: 32px;
+  animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(6) {
+  top: 32px;
+  left: 56px;
+  animation-delay: -1.2s;
+}
+.lds-grid div:nth-child(7) {
+  top: 56px;
+  left: 8px;
+  animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(8) {
+  top: 56px;
+  left: 32px;
+  animation-delay: -1.2s;
+}
+.lds-grid div:nth-child(9) {
+  top: 56px;
+  left: 56px;
+  animation-delay: -1.6s;
+}
+@keyframes lds-grid {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
 /* TRANSITION DU ROUTEUR */
 
 
@@ -54,9 +161,10 @@ export default {
 
 /* GESTION DU BACKGROUND */
 
-html{
+
+#app{
     background-image: url("assets/background-flou.jpg");
-  overflow-x: hidden;
+    overflow-x: hidden;
     background-position: center;
     background-attachment: fixed;
     width: 100vw;
@@ -64,16 +172,6 @@ html{
     background-size: cover;
     padding-bottom: 20px;
 }
-
-/* #app{
-    background-image: url("assets/background-flou.jpg");
-    background-position: center;
-    background-attachment: fixed;
-    width: 100vw;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding-bottom: 20px;
-} */
 
 /* FIN DE GESTION DU BACKGROUND */
 
