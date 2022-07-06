@@ -54,14 +54,14 @@ export default {
 
 /* GESTION DU BACKGROUND */
 
-body{
+#app{
     background-image: url("assets/background-flou.jpg");
     background-position: center;
     background-attachment: fixed;
     width: 100vw;
-    height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
+    padding-bottom: 20px;
 }
 
 /* FIN DE GESTION DU BACKGROUND */

@@ -22,7 +22,7 @@ export default {
     /* FOOTER */
 
     footer{
-        margin: 200px auto 50px auto;
+        margin: 200px auto 0px auto;
         width: 200px;
         height: 50px;
         border-bottom: 2px solid white;
