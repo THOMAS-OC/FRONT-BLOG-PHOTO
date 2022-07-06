@@ -1,6 +1,6 @@
 <template>
   <main class="SelectAlbum">
-        <h2>Découvrez mes albums </h2>
+        <h2> ALBUMS PHOTOS </h2>
         <section class="choiceGalerie">
             <a class="bnw" v-on:click="select('bnw')" href="#">
                 <h3>Black and white</h3>
@@ -70,25 +70,32 @@ export default {
 
     select(album){
 
+    // AFFICHAGE DU NOM DE L'ALBUM
+
      if (album == "bnw"){
-          this.nameAlbum = "Album noir et blanc" 
+          this.nameAlbum = "Noir et blanc".toUpperCase()
       }
     else if (album == "macro"){
-          this.nameAlbum = "Album macrophotographie" 
+          this.nameAlbum = "Macrophotographie".toUpperCase()
       }
     else if (album == "paysage"){
-          this.nameAlbum = "Album paysage" 
+          this.nameAlbum = "Paysage".toUpperCase()
       }
     else if (album == "animalier"){
-          this.nameAlbum = "Album Animalier" 
+          this.nameAlbum = "Animalier".toUpperCase()
       }
 
+    // APPARITION DU SCROLL
+
       document.querySelector(".lds-roller").className = "lds-roller loaderFondu"
-    
+
       setTimeout(()=>{
         document.querySelector(".lds-roller").className = "lds-roller"
       }, 2500)
-    
+
+      console.log(document.querySelector(".album").offsetHeight);
+
+
       document.querySelector(".album").innerHTML = ""
       console.log(album);
       this.$http.get(`https://apiphotos.herokuapp.com/album/${album}`)
@@ -99,10 +106,9 @@ export default {
             newImgLink.innerHTML = `<a href="${img.urlDownload}" target="_blank"> <i class="fa-solid fa-file-arrow-down"></i> </a> <img src="${img.urlFileCompressed}" alt="${img.alt}">`
             document.querySelector(".album").appendChild(newImgLink)
         }
-        // window.scrollTo(0, 1000);
         let element = document.querySelector(".nameAlbum");
         // smooth scroll to element and align it at the bottom
-        element.scrollIntoView({ behavior: 'smooth', block: 'start'});
+        element.scrollIntoView({ behavior: 'smooth', block: 'center'});
       })
       .catch((err)=> {
         console.log(err);
@@ -119,6 +125,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.nameAlbum{
+  font-style: italic;
+}
 
 .loaderFondu{
     animation-name: loaderFondu;
@@ -231,6 +241,8 @@ h2{
     margin-top: 150px;
     margin-bottom: 50px;
     color: white;
+    letter-spacing: 5px;
+    word-spacing: 10px;
     font-size: 40px;
     animation-name: titleAnimation;
     animation-duration: 1s;
