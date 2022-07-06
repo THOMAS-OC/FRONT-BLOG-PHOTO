@@ -305,6 +305,7 @@ h2{
     line-height: 60px;
     z-index: 50;
     font-size: 30px;
+    font-weight: normal;
     font-family: 'Splash', cursive;
     box-shadow: 0px 3px 3px black;
 }

@@ -26,6 +26,7 @@ export default {
         width: 200px;
         height: 50px;
         border-bottom: 2px solid white;
+        background-color: rgba(255, 255, 255, 0.399);
         display: flex;
         justify-content: space-around;
         align-items: center;

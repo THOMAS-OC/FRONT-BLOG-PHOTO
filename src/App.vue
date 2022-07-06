@@ -132,6 +132,7 @@ section.album a {
     position: absolute;
     bottom: 0;
     left: 50%;
+    font-weight: normal;
     transform: translateX(-50%);
     font-size: 50px;
     font-family: 'Splash', cursive;
