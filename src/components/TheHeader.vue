@@ -4,6 +4,7 @@
     <header class="TheHeader">
       <nav>
         <router-link to="/">Accueil</router-link>
+        <div class="transition"></div>
         <router-link to="/Contact">Contact</router-link>
         <h1 class="logoInNav">Arty</h1>
       </nav>
@@ -25,6 +26,17 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
+.transition{
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  height: 40%;
+  width: 2px;
+  transform: translate(-50%, -50%);
+  background-color: black;
+}
+
 
 header{
     height: 100px;
@@ -33,6 +45,7 @@ header{
     box-shadow: 0px 10px 3px rgba(0, 0, 0, 0.80);
     position: relative;
     z-index: 2;
+    font-weight: 600;
 }
 
 nav {
@@ -41,7 +54,6 @@ nav {
     display: flex;
     justify-content: space-around;
     color: black;
-    font-style: italic;
     text-decoration: none;
     line-height: 100px;
     font-size: 35px;
@@ -49,12 +61,36 @@ nav {
 }
 
 nav a {
-  font-weight: bold;
   color: #7b7b7b;
 }
 
 nav a.router-link-exact-active {
   color: #000000;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 680px) { 
+
+  header {
+      height: 100px;
+  }
+
+  .logoInNav {
+      position: absolute;
+      bottom: -100%;
+      color: white;
+      text-shadow: 0px 0px 13px black;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 50px;
+      font-family: 'Splash', cursive;
+  }
+
+  .transition{
+    display: block;
+  }
+
 }
 
 

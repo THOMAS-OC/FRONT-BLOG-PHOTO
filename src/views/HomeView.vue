@@ -1,6 +1,6 @@
 <template>
   <main class="SelectAlbum">
-        <h2>Parcourez mes albums </h2>
+        <h2>Découvrez mes albums </h2>
         <section class="choiceGalerie">
             <a class="bnw" v-on:click="select('bnw')" href="#">
                 <h3>Black and white</h3>
@@ -356,10 +356,9 @@ h2{
 
 @media (max-width: 680px) { 
 
-.choiceGalerie > a {
-        width: 85vw;
-    }
-
+  .choiceGalerie > a {
+          width: 85vw;
+      }
 
 }
 

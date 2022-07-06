@@ -25,9 +25,7 @@ export default {
         margin: 200px auto 50px auto;
         width: 200px;
         height: 50px;
-        border: 2px solid white;
-        border-right: none;
-        border-left: none;
+        border-bottom: 2px solid white;
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -58,6 +56,35 @@ export default {
             opacity: 1;
             transform: scaleX(1)
         }
+    }
+
+    /* RESPONSIVE TABLET */
+
+    
+    @media (max-width: 1100px) { 
+
+        footer {
+            width: 50vw;
+        }
+
+        footer i {
+            font-size: 40px;
+        }
+
+    }
+
+    /* RESPONSIVE SMARTPHONE */
+
+    @media (max-width: 680px) { 
+
+        footer {
+            width: 90vw;
+        }
+
+        footer i {
+            font-size: 45px;
+        }
+
     }
 
 </style>

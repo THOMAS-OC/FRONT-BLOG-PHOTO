@@ -1,6 +1,7 @@
 <template>
   
     <main class="contact">
+        <h1>Contactez moi</h1>
        
         <form action="/sendEmail" method="post">
 
@@ -43,6 +44,30 @@ export default {
 
 
 <style scoped>
+
+h1{
+    margin-top: 150px;
+    margin-bottom: 50px;
+    color: white;
+    font-size: 40px;
+    animation-name: titleAnimation;
+    animation-duration: 1s;
+    animation-delay: 2s;
+    animation-fill-mode: both;
+    text-align: center;
+    text-shadow: 0px 0px 3px black;
+}
+
+@keyframes titleAnimation {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+
 
 /* CONTACT LAYOUT */
 
