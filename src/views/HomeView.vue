@@ -76,7 +76,7 @@ export default {
           this.nameAlbum = "Noir et blanc".toUpperCase()
       }
     else if (album == "macro"){
-          this.nameAlbum = "Macro photographie".toUpperCase()
+          this.nameAlbum = "Macro".toUpperCase()
       }
     else if (album == "paysage"){
           this.nameAlbum = "Paysage".toUpperCase()
