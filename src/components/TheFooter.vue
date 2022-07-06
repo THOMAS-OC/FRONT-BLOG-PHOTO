@@ -26,7 +26,6 @@ export default {
         width: 200px;
         height: 50px;
         border-bottom: 2px solid white;
-        background-color: rgba(255, 255, 255, 0.399);
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -42,8 +41,8 @@ export default {
     footer i {
         cursor: pointer;
         font-size: 32px;
-        color: black;
-        text-shadow: 0px 0px 3px white;
+        color: whitesmoke;
+        text-shadow: 0px 0px 3px rgb(0, 0, 0);
     }
 
 
