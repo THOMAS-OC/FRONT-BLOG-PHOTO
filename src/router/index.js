@@ -5,10 +5,17 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/galerie',
     name: 'home',
     component: () => import(/* webpackChunkName: "about" */ '../views/HomeView.vue')
   },
+
+  {
+    path: '/', redirect: '/galerie',
+    name: 'home',
+    component: () => import(/* webpackChunkName: "about" */ '../views/HomeView.vue')
+  },
+
   {
     path: '/contact',
     name: 'contact',

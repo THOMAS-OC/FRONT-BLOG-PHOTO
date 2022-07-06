@@ -3,9 +3,15 @@
 
     <header class="TheHeader">
       <nav>
-        <router-link to="/">Accueil</router-link>
+        <router-link to="/galerie">Galerie
+          <div></div>
+          <div></div>
+        </router-link>
         <div class="transition"></div>
-        <router-link to="/Contact">Contact</router-link>
+        <router-link to="/contact">Contact
+          <div></div>
+          <div></div>
+        </router-link>
         <h1 class="logoInNav">Arty</h1>
       </nav>
     </header>
@@ -66,7 +72,42 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #000000;
+  position: relative;
 }
+
+nav a.router-link-exact-active div {
+  position: absolute;
+  top: 70%;
+  background-color: black;
+  width: 50px;
+  height: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-name: lineActive;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+}
+
+nav a.router-link-exact-active div:nth-child(2) {
+  position: absolute;
+  top: 75%;
+  background-color: black;
+  width: 50px;
+  height: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-name: lineActive;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-delay: 0.5s;
+}
+
+@keyframes lineActive {
+  50%{
+    transform: translateX(-50%) scaleX(2);
+  }
+}
+
 
 /* RESPONSIVE */
 
