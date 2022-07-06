@@ -42,8 +42,8 @@ header{
     height: 100px;
     width: 100vw;
     background-color: #FFFFFF;
-    box-shadow: 0px 10px 3px rgba(0, 0, 0, 0.80);
     position: relative;
+    border-bottom: 3px solid #000;
     z-index: 2;
     font-weight: 600;
 }

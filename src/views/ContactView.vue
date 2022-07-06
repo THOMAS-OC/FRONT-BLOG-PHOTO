@@ -1,7 +1,7 @@
 <template>
   
     <main class="contact">
-        <h1>Contactez moi</h1>
+        <h1>Contactez-moi</h1>
        
         <form action="/sendEmail" method="post">
 

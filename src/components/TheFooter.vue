@@ -78,7 +78,7 @@ export default {
     @media (max-width: 680px) { 
 
         footer {
-            width: 90vw;
+            width: 80vw;
         }
 
         footer i {
