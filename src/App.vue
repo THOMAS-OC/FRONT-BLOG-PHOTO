@@ -54,8 +54,9 @@ export default {
 
 /* GESTION DU BACKGROUND */
 
-#app{
+html{
     background-image: url("assets/background-flou.jpg");
+  overflow-x: hidden;
     background-position: center;
     background-attachment: fixed;
     width: 100vw;
@@ -63,6 +64,16 @@ export default {
     background-size: cover;
     padding-bottom: 20px;
 }
+
+/* #app{
+    background-image: url("assets/background-flou.jpg");
+    background-position: center;
+    background-attachment: fixed;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 20px;
+} */
 
 /* FIN DE GESTION DU BACKGROUND */
 
