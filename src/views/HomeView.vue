@@ -2,7 +2,7 @@
   <main class="SelectAlbum">
         <h2> ALBUMS PHOTOS </h2>
         <section class="choiceGalerie">
-            <a class="bnw" v-on:click="select('bnw')" href="#">
+            <a class="noir-et-blanc" v-on:click="select('noir-et-blanc')" href="#">
                 <h3>Black and white</h3>
                 <img src="../assets/bnw_section.jpg" alt="Album noir et blanc">
                 <div class="curl">
@@ -72,7 +72,7 @@ export default {
 
     // AFFICHAGE DU NOM DE L'ALBUM
 
-     if (album == "bnw"){
+     if (album == "noir-et-blanc"){
           this.nameAlbum = "Noir et blanc".toUpperCase()
       }
     else if (album == "macro"){
