@@ -3,21 +3,21 @@
     <main class="contact">
         <h1>Contactez-moi</h1>
        
-        <form action="/sendEmail" method="post">
+        <form @submit.prevent=submitForm>
 
             <label for="nom">nom</label>
-            <input pattern="[a-zA-Z]{3,50}" required placeholder="Dupont" type="text" id="nom" name="nom">
+            <input v-model="nom" pattern="[a-zA-Z]{3,50}" required placeholder="Dupont" type="text" id="nom" name="nom">
 
             <label for="prenom">prenom</label>
-            <input pattern="[a-zA-Z]{3,50}" required placeholder="Jean" type="text" id="prenom" name="prenom">
+            <input v-model="prenom" pattern="[a-zA-Z]{3,50}" required placeholder="Jean" type="text" id="prenom" name="prenom">
 
             <label for="message">Message</label>
-            <textarea placeholder="Bonjour..." name="message" id="message" cols="30" rows="10"></textarea>
+            <textarea v-model="message" required placeholder="Bonjour..." name="message" id="message" cols="30" rows="10"></textarea>
 
             <label for="email">email</label>
-            <input required placeholder="doudoulapinou@gmail.com" type="email" name="email" id="email">
+            <input v-model="email" required placeholder="doudoulapinou@gmail.com" type="email" name="email" id="email">
 
-            <input disabled type="submit" value="Envoyer">
+            <input type="submit" value="Envoyer">
 
         </form>
 
@@ -30,14 +30,44 @@
 
 export default {
   name: 'ContactView',
-  components: {
+
+  data(){
+      return {
+        nom: "",
+        prenom: "",
+        message: "",
+        email: ""
+      }
   },
+
 
   created: function() {
     let description = "Vous pouvez directement me contacter à travers ce formulaire pour toutes demandes !"
     document.title = "Contactez-moi / Arty blog photographique"
     document.querySelector('meta[name="description"]').setAttribute("content", description)
 
+  },
+
+  methods:{
+    submitForm(){
+        console.log(this.nom, this.prenom, this.message, this.email);
+
+        this.$http.post('https://apiphotos.herokuapp.com/send/message', {
+            prenom: this.nom,
+            nom: this.prenom,
+            email: this.email,
+            message: this.message
+        })
+        .then(function (response) {
+            console.log(response);
+            alert("Message envoyé !")
+        })
+        .catch(function (error) {
+            console.log(error);
+            alert("Erreur lors de l'envoi")
+        });
+        
+    }
   }
 }
 </script>
