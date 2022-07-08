@@ -74,18 +74,26 @@ export default {
 
      if (album == "noir-et-blanc"){
           this.nameAlbum = "Noir et blanc".toUpperCase()
+          document.querySelector(".nameAlbum").className = "nameAlbum op1 backgroundNB"
       }
     else if (album == "macro"){
           this.nameAlbum = "Macro".toUpperCase()
+          document.querySelector(".nameAlbum").className = "nameAlbum op1 backgroundMacro"
+
       }
     else if (album == "paysage"){
           this.nameAlbum = "Paysage".toUpperCase()
+          document.querySelector(".nameAlbum").className = "nameAlbum op1 backgroundPaysage"
+
       }
     else if (album == "animalier"){
           this.nameAlbum = "Animalier".toUpperCase()
+          document.querySelector(".nameAlbum").className = "nameAlbum op1 backgroundAnimalier"
+
       }
 
-    // APPARITION DU SCROLL
+    // APPARITION DU loader
+
 
       document.querySelector(".lds-roller").className = "lds-roller loaderFondu"
 
@@ -95,6 +103,8 @@ export default {
 
       console.log(document.querySelector(".album").offsetHeight);
 
+
+      
 
       document.querySelector(".album").innerHTML = ""
       console.log(album);
@@ -128,6 +138,34 @@ export default {
 
 .nameAlbum{
   font-style: italic;
+  height: 500px;
+  background-color: black;
+  opacity: 0 !important;
+  line-height: 500px;
+  background-attachment: fixed;
+  background-size: cover;
+  transition-duration: 1s;
+
+}
+
+.backgroundNB{
+  background-image: url('../assets/bnw_section.jpg');
+}
+
+.backgroundAnimalier{
+  background-image: url('../assets/animalier_section.jpg');
+}
+
+.backgroundMacro{
+  background-image: url('../assets/macro_section.jpg');
+}
+
+.backgroundPaysage{
+  background-image: url('../assets/paysage_section.jpg');
+}
+
+.op1{
+  opacity: 1 !important;
 }
 
 .loaderFondu{
