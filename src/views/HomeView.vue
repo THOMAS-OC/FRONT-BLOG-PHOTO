@@ -145,7 +145,6 @@ export default {
   background-attachment: fixed;
   background-size: cover;
   transition-duration: 1s;
-
 }
 
 .backgroundNB{
@@ -408,8 +407,14 @@ h2{
 @media (max-width: 680px) { 
 
   .choiceGalerie > a {
-          width: 85vw;
-      }
+        width: 85vw;
+  }
+
+  .nameAlbum{
+    height: 200px;
+    line-height: 200px;
+
+  }
 
 }
 

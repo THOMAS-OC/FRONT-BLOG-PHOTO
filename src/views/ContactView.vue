@@ -6,16 +6,16 @@
         <form @submit.prevent=submitForm>
 
             <label for="nom">nom</label>
-            <input v-model="nom" pattern="[a-zA-Z]{3,50}" required placeholder="Dupont" type="text" id="nom" name="nom">
+            <input v-on:keyup="save($event, 'nom')" v-model="nom" pattern="[a-zA-Z]{3,50}" required placeholder="Dupont" type="text" id="nom" name="nom">
 
             <label for="prenom">prenom</label>
-            <input v-model="prenom" pattern="[a-zA-Z]{3,50}" required placeholder="Jean" type="text" id="prenom" name="prenom">
+            <input v-on:keyup="save($event, 'prenom')" v-model="prenom" pattern="[a-zA-Z]{3,50}" required placeholder="Jean" type="text" id="prenom" name="prenom">
 
             <label for="message">Message</label>
-            <textarea v-model="message" required placeholder="Bonjour..." name="message" id="message" cols="30" rows="10"></textarea>
+            <textarea v-on:keyup="save($event, 'message')" v-model="message" required placeholder="Bonjour..." name="message" id="message" cols="30" rows="10"></textarea>
 
             <label for="email">email</label>
-            <input v-model="email" required placeholder="doudoulapinou@gmail.com" type="email" name="email" id="email">
+            <input v-on:keyup="save($event, 'email')" v-model="email" required placeholder="doudoulapinou@gmail.com" type="email" name="email" id="email">
 
             <input type="submit" value="Envoyer">
 
@@ -45,7 +45,10 @@ export default {
     let description = "Vous pouvez directement me contacter à travers ce formulaire pour toutes demandes !"
     document.title = "Contactez-moi / Arty blog photographique"
     document.querySelector('meta[name="description"]').setAttribute("content", description)
-
+    this.nom = localStorage.getItem("nom") || ""
+    this.prenom = localStorage.getItem("prenom") || ""
+    this.message = localStorage.getItem("message") || ""
+    this.email = localStorage.getItem("email") || ""
   },
 
   methods:{
@@ -67,6 +70,11 @@ export default {
             alert("Erreur lors de l'envoi")
         });
         
+    },
+
+    save($event, arg){
+        console.log($event.target.value);
+        localStorage.setItem(arg, $event.target.value)
     }
   }
 }
