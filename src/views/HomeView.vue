@@ -1,6 +1,6 @@
 <template>
   <main class="SelectAlbum">
-        <h2> ALBUMS PHOTOS TEST </h2>
+        <h2> ALBUMS PHOTOS </h2>
         <section class="choiceGalerie">
             <a class="noir-et-blanc" v-on:click="select('noir-et-blanc')" href="#">
                 <h3>Black and white</h3>
@@ -39,7 +39,17 @@
         <h2 class="nameAlbum">{{ nameAlbum }}</h2>
 
         <section class="album">
+
+          <div v-for="item in currentJsonFile" :key="item.categorie">
+            <a :href=item.urlDownload target="_blank"> <i class="fa-solid fa-file-arrow-down"></i> </a>
+            <img :src=item.urlFileCompressed :alt=item.alt>
+          </div>
+
         </section>
+
+
+
+        <button v-on:click="getJsonFile()"> test </button>
 
 
 
@@ -53,6 +63,7 @@ export default {
   data(){
       return {
         nameAlbum: "",
+        currentJsonFile : require('../assets/' + 'photos.json')
       }
   },
 
@@ -67,6 +78,10 @@ export default {
   },
 
   methods:{
+    getJsonFile () {
+      console.log(this.currentJsonFile[0]["categorie"]);
+      console.log(typeof this.currentJsonFile);
+    },
 
     select(album){
 
@@ -103,9 +118,6 @@ export default {
 
       console.log(document.querySelector(".album").offsetHeight);
 
-
-      
-
       document.querySelector(".album").innerHTML = ""
       console.log(album);
       this.$http.get(`https://apiphotos.herokuapp.com/album/${album}`)
@@ -120,9 +132,7 @@ export default {
         // smooth scroll to element and align it at the bottom
         element.scrollIntoView({ behavior: 'smooth', block: 'center'});
       })
-      .catch((err)=> {
-        console.log(err);
-      })
+
 
     },
 
