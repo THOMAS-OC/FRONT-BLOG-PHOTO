@@ -2,21 +2,21 @@
   <main class="SelectAlbum">
         <h2> ALBUMS PHOTOS </h2>
         <section class="choiceGalerie">
-            <a class="noir-et-blanc" v-on:click="select('noir-et-blanc')" href="#">
+            <a class="noir-et-blanc" v-on:click="filterJsonFile('noir-et-blanc')" href="#">
                 <h3>Black and white</h3>
                 <img src="../assets/bnw_section.jpg" alt="Album noir et blanc">
                 <div class="curl">
                     <img src="../assets/curlRotate.png" alt="">
                 </div>
             </a>
-            <a v-on:click="select('macro')" href="#">
+            <a v-on:click="filterJsonFile('macro')" href="#">
                 <h3>Macrophotographie</h3>
                 <img src="../assets/macro_section.jpg" alt="Album macro">
                 <div class="curl">
                     <img src="../assets/curlRotate.png" alt="">
                 </div>
             </a>
-            <a v-on:click="select('paysage')" href="#">
+            <a v-on:click="filterJsonFile('paysage')" href="#">
                 <h3>Paysage</h3>
                 <img src="../assets/paysage_section.jpg" alt="Album paysage">
                 <div class="curl">
@@ -24,7 +24,7 @@
                 </div>
             </a>
 
-            <a v-on:click="select('animalier')" href="#">
+            <a v-on:click="filterJsonFile('animalier')" href="#">
                 <h3>Animalier</h3>
                 <img src="../assets/animalier_section.jpg" alt="Album animaux">
                 <div class="curl">
@@ -48,11 +48,6 @@
         </section>
 
 
-
-        <button v-on:click="getJsonFile()"> test </button>
-
-
-
   </main>
 </template>
 
@@ -63,6 +58,7 @@ export default {
   data(){
       return {
         nameAlbum: "",
+        saveJsonFile : require('../assets/' + 'photos.json'),
         currentJsonFile : require('../assets/' + 'photos.json')
       }
   },
@@ -78,32 +74,28 @@ export default {
   },
 
   methods:{
-    getJsonFile () {
-      console.log(this.currentJsonFile[0]["categorie"]);
-      console.log(typeof this.currentJsonFile);
-    },
-
-    select(album){
+    filterJsonFile (album) {
+      this.currentJsonFile = this.saveJsonFile.filter(item => item.categorie == album)
 
     // AFFICHAGE DU NOM DE L'ALBUM
 
      if (album == "noir-et-blanc"){
           this.nameAlbum = "Noir et blanc".toUpperCase()
-          document.querySelector(".nameAlbum").className = "nameAlbum op1 backgroundNB"
+          document.querySelector(".nameAlbum").className = "nameAlbum op1"
       }
     else if (album == "macro"){
           this.nameAlbum = "Macro".toUpperCase()
-          document.querySelector(".nameAlbum").className = "nameAlbum op1 backgroundMacro"
+          document.querySelector(".nameAlbum").className = "nameAlbum op1"
 
       }
     else if (album == "paysage"){
           this.nameAlbum = "Paysage".toUpperCase()
-          document.querySelector(".nameAlbum").className = "nameAlbum op1 backgroundPaysage"
+          document.querySelector(".nameAlbum").className = "nameAlbum op1"
 
       }
     else if (album == "animalier"){
           this.nameAlbum = "Animalier".toUpperCase()
-          document.querySelector(".nameAlbum").className = "nameAlbum op1 backgroundAnimalier"
+          document.querySelector(".nameAlbum").className = "nameAlbum op1"
 
       }
 
@@ -115,23 +107,6 @@ export default {
       setTimeout(()=>{
         document.querySelector(".lds-roller").className = "lds-roller"
       }, 2500)
-
-      console.log(document.querySelector(".album").offsetHeight);
-
-      document.querySelector(".album").innerHTML = ""
-      console.log(album);
-      this.$http.get(`https://apiphotos.herokuapp.com/album/${album}`)
-      .then(function (response) {
-        const imgData = response.data;
-        for (let img of imgData){
-            let newImgLink = document.createElement("div");
-            newImgLink.innerHTML = `<a href="${img.urlDownload}" target="_blank"> <i class="fa-solid fa-file-arrow-down"></i> </a> <img src="${img.urlFileCompressed}" alt="${img.alt}">`
-            document.querySelector(".album").appendChild(newImgLink)
-        }
-        let element = document.querySelector(".nameAlbum");
-        // smooth scroll to element and align it at the bottom
-        element.scrollIntoView({ behavior: 'smooth', block: 'center'});
-      })
 
 
     },
@@ -149,28 +124,11 @@ export default {
 .nameAlbum{
   font-style: italic;
   height: 500px;
-  background-color: black;
   opacity: 0 !important;
   line-height: 500px;
   background-attachment: fixed;
   background-size: cover;
   transition-duration: 1s;
-}
-
-.backgroundNB{
-  background-image: url('../assets/bnw_section.jpg');
-}
-
-.backgroundAnimalier{
-  background-image: url('../assets/animalier_section.jpg');
-}
-
-.backgroundMacro{
-  background-image: url('../assets/macro_section.jpg');
-}
-
-.backgroundPaysage{
-  background-image: url('../assets/paysage_section.jpg');
 }
 
 .op1{
