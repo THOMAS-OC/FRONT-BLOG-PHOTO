@@ -10,6 +10,7 @@ def updateGithub():
 	os.system("git push origin main")
 
 def updateWebsite():
+	os.system("npm run build")
 	os.system("firebase deploy")
 
 def writeJson():
