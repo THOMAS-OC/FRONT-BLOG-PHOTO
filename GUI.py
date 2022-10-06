@@ -1,11 +1,49 @@
 # L'importation de l’ensemble des éléments du paquet tkinter :
 from tkinter import *
 import os
+import json
 
-from functions import *
+def updateGithub():
+	os.system("git add .")
+	os.system("git commit -m 'Mise à jour de la BDD'")
+	os.system("git push origin main")
 
-def action():
-    print("hello world")
+def updateWebsite():
+	os.system("firebase deploy")
+
+def writeJson():
+	print(altInput.get())
+	print(urlCompressedInput.get())
+	print(urlDownload.get())
+	categorie = ""
+	for i in liste1.curselection():
+		categorie = liste1.get(i)
+		print(categorie)
+
+	# Ouvrir et convertir le fichier json en liste python
+
+	fileRead = open("src/assets/photos2.json", "r")
+	jsonContent = fileRead.read()
+	list_photos = json.loads(jsonContent)
+	fileRead.close()
+
+	# Ajouter un élément à la liste
+
+	mydict = {"urlFileCompressed":urlCompressedInput.get(), "urlDownload":urlDownload.get(), "alt":altInput.get(), "categorie":categorie}
+	list_photos.append(mydict)
+
+		# Convertir la liste en json
+
+	jsonStr = json.dumps(list_photos)
+
+		# reecrire le fichier json à partir de la liste python
+
+	jsonWrite = open("src/assets/photos2.json", "w")
+	jsonWrite.write(jsonStr)
+	jsonWrite.close()
+
+# def writeJson() :
+
 
 # Création d'une fenêtre avec la classe Tk :
 fenetre = Tk()
@@ -22,7 +60,7 @@ fenetre.minsize(300,400)
 
 # Création des champs de saisie de l'utilisateur dans la fenêtre :
 # Ajout d'un texte dans la fenêtre :
-altLabel = Label (fenetre, text = "Texte décrivant l'image")
+altLabel = Label (fenetre, text = "Texte alternatif")
 altLabel.pack()
 
 altInput = Entry(fenetre)
@@ -49,13 +87,26 @@ liste1.insert(4, "paysage")
 liste1.pack()
 
 # Ajout d'un bouton d'update dans la fenêtre :
-bouton1 = Button (fenetre, text = "mise à jour BDD")
-btn = Button(
+btnGithub = Button(
   fenetre,
-  text = "Cliquez ici!", 
-  command = update()
+  text = "Update Github", 
+  command = updateGithub
 )
-bouton1.pack()
+btnGithub.pack()
+
+btnDeploy = Button(
+  fenetre,
+  text = "Update website", 
+  command = updateWebsite
+)
+btnDeploy.pack()
+
+btnTest = Button(
+  fenetre,
+  text = "Update Databases", 
+  command = writeJson
+)
+btnTest.pack()
 
 # Affichage de la fenêtre créée :
 fenetre.mainloop()
