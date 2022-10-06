@@ -1,6 +1,6 @@
 <template>
   <main class="SelectAlbum">
-        <h2> Supers ALBUMS PHOTOS </h2>
+        <h2> ALBUMS PHOTOS </h2>
         <section class="choiceGalerie">
             <a class="noir-et-blanc" v-on:click="filterJsonFile('noir-et-blanc')" href="#">
                 <h3>Black and white</h3>
