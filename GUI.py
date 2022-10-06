@@ -2,11 +2,10 @@
 from tkinter import *
 import os
 
-# fonction d'update
-def update():
-    os.system("git add .")
-    os.system("git commit -m 'Mise à jour de la BDD'")
-    os.system("git push origin main")
+from functions import *
+
+def action():
+    print("hello world")
 
 # Création d'une fenêtre avec la classe Tk :
 fenetre = Tk()
