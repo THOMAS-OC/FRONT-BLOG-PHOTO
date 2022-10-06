@@ -38,7 +38,7 @@
 
         <h2 class="nameAlbum">{{ nameAlbum }}</h2>
 
-        <section class="album">
+        <section class="album displayNone">
 
           <div v-for="item in currentJsonFile" :key="item.categorie">
             <a :href=item.urlDownload target="_blank"> <i class="fa-solid fa-file-arrow-down"></i> </a>
@@ -63,10 +63,6 @@ export default {
       }
   },
 
-  props: {
-    msg: String
-  },
-
   created: function() {
     let description = "Bienvenu dans mon univers photographique ! Vous trouverez ici l'ensemble de mes photos téléchargeables gratuitement ainsi que de nombreux photographes amateurs à découvrir"
     document.title = "Découvrez mon univers photographique / ARTY"
@@ -75,7 +71,10 @@ export default {
 
   methods:{
     filterJsonFile (album) {
-      this.currentJsonFile = this.saveJsonFile.filter(item => item.categorie == album)
+    this.currentJsonFile = this.saveJsonFile.filter(item => item.categorie == album)
+
+    // Affichage de la section
+    document.querySelector(".album").className = "album"
 
     // AFFICHAGE DU NOM DE L'ALBUM
 
@@ -106,10 +105,16 @@ export default {
 
       setTimeout(()=>{
         document.querySelector(".lds-roller").className = "lds-roller"
+        document.querySelector(".album").scrollIntoView()
       }, 2500)
+
+      // Scroll auto
+      
+
 
 
     },
+
 
 
   },
@@ -129,6 +134,10 @@ export default {
   background-attachment: fixed;
   background-size: cover;
   transition-duration: 1s;
+}
+
+.displayNone {
+  display: none;
 }
 
 .op1{
