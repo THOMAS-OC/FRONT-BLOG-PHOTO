@@ -12,6 +12,7 @@ def updateGithub():
 def updateWebsite():
 	os.system("npm run build")
 	os.system("firebase deploy")
+	print("Mise à jour du site terminée")
 
 def writeJson():
 	print(altInput.get())

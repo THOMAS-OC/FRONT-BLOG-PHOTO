@@ -59,7 +59,7 @@ export default {
       return {
         nameAlbum: "",
         saveJsonFile : require('../assets/' + 'photos.json'),
-        currentJsonFile : require('../assets/' + 'photos.json')
+        currentJsonFile : null
       }
   },
 
@@ -71,6 +71,7 @@ export default {
 
   methods:{
     filterJsonFile (album) {
+    this.currentJsonFile = null
     this.currentJsonFile = this.saveJsonFile.filter(item => item.categorie == album)
 
     // Affichage de la section
@@ -98,9 +99,6 @@ export default {
 
       }
 
-    // APPARITION DU loader
-
-
       document.querySelector(".lds-roller").className = "lds-roller loaderFondu"
 
       setTimeout(()=>{
@@ -108,17 +106,9 @@ export default {
         document.querySelector(".album").scrollIntoView()
       }, 2500)
 
-      // Scroll auto
-      
-
-
-
     },
 
-
-
   },
-
 
 }
 </script>
