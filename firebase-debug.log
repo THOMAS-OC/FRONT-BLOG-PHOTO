@@ -1,0 +1,38 @@
+[debug] [2023-02-16T07:03:47.260Z] ----------------------------------------------------------------------
+[debug] [2023-02-16T07:03:47.264Z] Command:       /usr/bin/node /usr/bin/firebase deploy
+[debug] [2023-02-16T07:03:47.266Z] CLI Version:   11.13.0
+[debug] [2023-02-16T07:03:47.266Z] Platform:      linux
+[debug] [2023-02-16T07:03:47.266Z] Node Version:  v16.19.0
+[debug] [2023-02-16T07:03:47.267Z] Time:          Thu Feb 16 2023 08:03:47 GMT+0100 (Central European Standard Time)
+[debug] [2023-02-16T07:03:47.268Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-02-16T07:03:47.276Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2023-02-16T07:03:47.442Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-02-16T07:03:47.443Z] > authorizing via signed-in user (thomasestivaloc@gmail.com)
+[debug] [2023-02-16T07:03:47.444Z] [iam] checking project blog-photo-81310 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-02-16T07:03:47.446Z] > refreshing access token with scopes: []
+[debug] [2023-02-16T07:03:47.448Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-02-16T07:03:47.448Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-02-16T07:03:47.715Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-02-16T07:03:47.716Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-02-16T07:03:47.746Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/blog-photo-81310:testIamPermissions [none]
+[debug] [2023-02-16T07:03:47.747Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/blog-photo-81310:testIamPermissions x-goog-quota-user=projects/blog-photo-81310
+[debug] [2023-02-16T07:03:47.747Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/blog-photo-81310:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-02-16T07:03:47.865Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2023-02-16T07:03:47.865Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2023-02-16T07:03:48.648Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/blog-photo-81310:testIamPermissions 200
+[debug] [2023-02-16T07:03:48.650Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/blog-photo-81310:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-02-16T07:03:48.657Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/blog-photo-81310 [none]
+[debug] [2023-02-16T07:03:49.137Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/blog-photo-81310 200
+[debug] [2023-02-16T07:03:49.138Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/blog-photo-81310 {"projectId":"blog-photo-81310","projectNumber":"1076708291955","displayName":"BLOG PHOTO","name":"projects/blog-photo-81310","resources":{"hostingSite":"blog-photo-81310"},"state":"ACTIVE","etag":"1_056789cd-fbc0-4f7e-a77d-11fc02233ed0"}
+[info] 
+[info] === Deploying to 'blog-photo-81310'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2023-02-16T07:03:49.151Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/blog-photo-81310 [none]
+[debug] [2023-02-16T07:03:51.055Z] Failed to make request to https://firebase.googleapis.com/v1beta1/projects/blog-photo-81310
+[debug] [2023-02-16T07:03:51.063Z] FirebaseError: Failed to make request to https://firebase.googleapis.com/v1beta1/projects/blog-photo-81310
+    at RetryOperation._fn (/usr/lib/node_modules/firebase-tools/lib/apiv2.js:242:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get Firebase project blog-photo-81310. Please make sure the project exists and your account has permission to access it.
