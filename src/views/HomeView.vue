@@ -32,6 +32,14 @@
                 </div>
             </a>
 
+            <a v-on:click="filterJsonFile('3D')" href="#">
+                <h3>Modélisation 3D</h3>
+                <img src="../assets/3D_section.jpg" alt="Album Modélisation 3D">
+                <div class="curl">
+                    <img src="../assets/curlRotate.png" alt="">
+                </div>
+            </a>
+
         </section>
 
         <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
@@ -97,6 +105,11 @@ export default {
           this.nameAlbum = "Animalier".toUpperCase()
           document.querySelector(".nameAlbum").className = "nameAlbum op1"
 
+      }
+
+    else if (album == "3D"){
+          this.nameAlbum = "Modélisation 3D".toUpperCase()
+          document.querySelector(".nameAlbum").className = "nameAlbum op1"
       }
 
       document.querySelector(".lds-roller").className = "lds-roller loaderFondu"
