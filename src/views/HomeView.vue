@@ -35,7 +35,7 @@
         <section class="album displayNone">
 
           <div v-for="item in currentJsonFile" :key="item.categorie">
-            <a :href=item.urlDownload target="_blank"> <i class="fa-solid fa-file-arrow-down"></i> </a>
+            <a download="arty.jpg" :href=item.urlDownload target="_blank"> <i class="fa-solid fa-file-arrow-down"></i> </a>
             <img :src=item.urlFileCompressed :alt=item.alt>
           </div>
 
