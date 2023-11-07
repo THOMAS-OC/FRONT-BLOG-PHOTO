@@ -2,13 +2,7 @@
   <main class="SelectAlbum">
         <h2> ALBUMS PHOTOS </h2>
         <section class="choiceGalerie">
-            <a class="noir-et-blanc" v-on:click="filterJsonFile('noir-et-blanc')" href="#">
-                <h3>Black and white</h3>
-                <img src="../assets/bnw_section.jpg" alt="Album noir et blanc">
-                <div class="curl">
-                    <img src="../assets/curlRotate.png" alt="">
-                </div>
-            </a>
+
             <a v-on:click="filterJsonFile('macro')" href="#">
                 <h3>Macrophotographie</h3>
                 <img src="../assets/macro_section.jpg" alt="Album macro">
@@ -27,14 +21,6 @@
             <a v-on:click="filterJsonFile('animalier')" href="#">
                 <h3>Animalier</h3>
                 <img src="../assets/animalier_section.jpg" alt="Album animaux">
-                <div class="curl">
-                    <img src="../assets/curlRotate.png" alt="">
-                </div>
-            </a>
-
-            <a v-on:click="filterJsonFile('3D')" href="#">
-                <h3>Modélisation 3D</h3>
-                <img src="../assets/3D_section.jpg" alt="Album Modélisation 3D">
                 <div class="curl">
                     <img src="../assets/curlRotate.png" alt="">
                 </div>
@@ -87,11 +73,7 @@ export default {
 
     // AFFICHAGE DU NOM DE L'ALBUM
 
-     if (album == "noir-et-blanc"){
-          this.nameAlbum = "Noir et blanc".toUpperCase()
-          document.querySelector(".nameAlbum").className = "nameAlbum op1"
-      }
-    else if (album == "macro"){
+     if (album == "macro"){
           this.nameAlbum = "Macro".toUpperCase()
           document.querySelector(".nameAlbum").className = "nameAlbum op1"
 
@@ -105,11 +87,6 @@ export default {
           this.nameAlbum = "Animalier".toUpperCase()
           document.querySelector(".nameAlbum").className = "nameAlbum op1"
 
-      }
-
-    else if (album == "3D"){
-          this.nameAlbum = "Modélisation 3D".toUpperCase()
-          document.querySelector(".nameAlbum").className = "nameAlbum op1"
       }
 
       document.querySelector(".lds-roller").className = "lds-roller loaderFondu"
