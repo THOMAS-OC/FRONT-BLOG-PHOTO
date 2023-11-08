@@ -1,7 +1,7 @@
 <template>
 
     <footer class="TheFooter">
-        <a target="_blank" href="https://www.instagram.com/arty_photography_83/">
+        <a target="_blank" href="https://www.instagram.com/arty.photo.83/">
             <i class="fa-brands fa-instagram"></i>
         </a>
         <i class="fa-brands fa-linkedin"></i>
