@@ -67,7 +67,7 @@ export default {
     filterJsonFile (album) {
     this.currentJsonFile = null
     this.currentJsonFile = this.saveJsonFile.filter(item => item.categorie == album)
-    this.currentJsonFile = this.currentJsonFile.reverse()
+    this.currentJsonFile = this.currentJsonFile.sort((a, b) => a.order - b.order)
     // Affichage de la section
     document.querySelector(".album").className = "album"
 
